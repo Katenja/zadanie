@@ -1,0 +1,2 @@
+void ffun();
+void ffu();

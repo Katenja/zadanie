@@ -1,0 +1,22 @@
+install: all
+	mkdir ~/STR1 
+	mv readline ~/STR1/  
+all: readline 
+
+readline: readline.o ffun.o ffu.o 
+	gcc -c *.c
+	gcc -o readline *.o -lreadline
+readline.o: readline.c ffun.h 
+	gcc -c -o readline.o readline.c 
+
+ffun.o: ffun.c ffun.h 
+	gcc -c -o ffun.o ffun.c 
+
+ffu.o: ffu.c ffun.h 
+	gcc -c -o ffu.o ffu.c 
+
+.PHONY: clean 
+clean: 
+	rm -f readline readline.o ffun.o ffu.o 
+	rm -rf ~/STR1
+
